@@ -1,4 +1,4 @@
-"""Genera capturas reales de los cinco sitios usando un navegador local con Internet.
+"""Genera capturas reales de los cinco sitios públicos usando un navegador local con Internet.
 
 Requiere: pip install playwright && python -m playwright install chromium
 Uso: python tools/capturar-juegos.py
@@ -43,7 +43,11 @@ async def main():
                 await page.close()
         await browser.close()
     # Script opcional: el archivo se carga en index.html ANTES que app.js.
-    mapping = ",\n".join(f'  "{name}": "assets/capturas/{name}.png"' for name in captured)
+    # Pulso Estelar tiene una captura autenticada guardada en el repositorio.
+    # No reemplazarla con la pantalla de login del despliegue de rama.
+    captured_mapping = {'pulso': 'assets/pulso-real.avif'}
+    captured_mapping.update({name: f'assets/capturas/{name}.png' for name in captured})
+    mapping = ",\n".join(f'  "{name}": "{path}"' for name, path in captured_mapping.items())
     (ROOT / "js" / "capturas-locales.js").write_text(
         f"// Generado automáticamente por tools/capturar-juegos.py\nwindow.LOCAL_CAPTURE_URLS = {{\n{mapping}\n}};\n",
         encoding="utf-8",

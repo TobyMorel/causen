@@ -47,3 +47,11 @@ El nombre **CUASEN** expresa la relación entre causa y consecuencia: toda decis
 ## Pulso Estelar (nuevo)
 
 El sexto juego es [Pulso Estelar](https://pulso-estelar-git-main-tobias-morel.vercel.app/). Se incorporó a la galería, la vista en vivo, las capturas con fallback ilustrado y el recorrido automático. La disposición de la portada se adapta a escritorio, tablet y celular.
+
+## Previsualización de Pulso Estelar
+
+La URL actualmente utilizada por Pulso Estelar termina en `git-main-tobias-morel.vercel.app` y corresponde a un despliegue de rama. En una sesión pública o dentro de un iframe, Vercel puede mostrar una pantalla de autenticación. Para evitar que eso aparezca en la portada de CUASEN, **Pulso Estelar usa la captura real proporcionada por el creador**: `assets/pulso-real.avif`. Es una vista estática, tanto en el destacado como en la tarjeta. Los otros cinco juegos conservan sus vistas en vivo.
+
+El botón «Entrar a Jugar» mantiene el enlace original compartido por el creador. Si se desea que funcione para todos los visitantes y vuelva a tener vista en vivo, hay que publicar Pulso Estelar en una URL de **producción pública**, verificar que admita incrustación en iframe y actualizar la URL en `index.html` y `js/app.js`. Luego puede quitarse `data-static-preview="true"` de la escena correspondiente.
+
+El generador de capturas no sobreescribe esta imagen, evitando guardar un formulario de acceso por accidente.

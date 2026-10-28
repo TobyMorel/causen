@@ -7,7 +7,7 @@ const games = [
   { id: 'expediente', title: 'EXPEDIENTE', category: 'EXPERIENCIA INTERACTIVA', description: 'Una nueva historia te espera detrás de cada expediente.', url: 'https://expendiente.vercel.app/', accent: '#ffbd97' },
   { id: 'barro', title: 'DESDE EL BARRO', category: 'FÚTBOL / GESTIÓN', description: 'Empezá desde abajo. Construí tu camino como entrenador, partido a partido.', url: 'https://desde-el-barro.vercel.app/', accent: '#c4fa85' },
   { id: 'logisys', title: 'LOGISYS', category: 'LOGÍSTICA / SIMULACIÓN', description: 'Ponete al mando de la operación. Cada movimiento cuenta.', url: 'https://logysys.vercel.app/', accent: '#a9c9ff' },
-  { id: 'pulso', title: 'PULSO ESTELAR', category: 'SIMULACIÓN / ESPACIO', description: 'Un nuevo universo por descubrir. Explorá Pulso Estelar y viví la experiencia.', url: 'https://pulso-estelar-git-main-tobias-morel.vercel.app/', accent: '#c4b5ff' }
+  { id: 'pulso', title: 'PULSO ESTELAR', category: 'SIMULACIÓN / ESPACIO', description: 'Pilotá Argos en seis ejes, explorá Helios y completá misiones de transporte, minería y patrulla.', url: 'https://pulso-estelar-git-main-tobias-morel.vercel.app/', accent: '#c4b5ff' }
 ];
 
 const shell = document.getElementById('siteShell');
@@ -45,6 +45,8 @@ function setupCaptures() {
       if (img.naturalWidth > 10 && img.naturalHeight > 10) img.classList.add('capture-ready');
     });
     img.addEventListener('error', () => img.classList.remove('capture-ready'));
+    // Para Pulso priorizamos siempre la captura real almacenada en el proyecto.
+    // El servicio remoto capturaría la pantalla de autenticación del despliegue de rama.
     img.src = window.LOCAL_CAPTURE_URLS?.[id] || captureURLs[id];
     img.decoding = 'async';
   }
@@ -61,7 +63,7 @@ function canReach(url) {
   return reachability.get(url);
 }
 async function loadFrame(scene) {
-  if (viewMode !== 'live') return;
+  if (viewMode !== 'live' || scene.dataset.staticPreview === 'true') return;
   const frame = scene.querySelector('iframe');
   if (!frame || frame.hasAttribute('src')) return;
   const reachable = await canReach(frame.dataset.src);
@@ -101,6 +103,7 @@ function showGame(index, updateHash = true, automatic = false) {
   description.textContent = game.description;
   playButton.href = game.url;
   playButton.setAttribute('aria-label', `Entrar a jugar ${game.title} (abre en una pestaña nueva)`);
+  updatePreviewControl();
   for (const [i, card] of cards.entries()) {
     const current = i === next;
     card.classList.toggle('is-current', current);
@@ -129,13 +132,21 @@ document.getElementById('nextButton').addEventListener('click', () => showGame(a
 
 document.querySelector('.brand').addEventListener('click', event => { event.preventDefault(); showGame(0); if (innerWidth <= 760) window.scrollTo({top:0,behavior:'smooth'}); });
 
+function updatePreviewControl() {
+  const snapshotOnly = games[active].id === 'pulso';
+  previewToggle.disabled = snapshotOnly;
+  previewToggle.classList.toggle('is-static', snapshotOnly);
+  previewLabel.textContent = snapshotOnly ? 'CAPTURA REAL' : viewMode === 'live' ? 'VISTA EN VIVO' : 'VISTA CAPTURA';
+  previewToggle.setAttribute('aria-pressed', String(!snapshotOnly && viewMode === 'live'));
+  previewToggle.setAttribute('aria-label', snapshotOnly ? 'Pulso Estelar: captura real del juego' : viewMode === 'live' ? 'Cambiar a vista de captura' : 'Cambiar a vista en vivo');
+  previewToggle.title = snapshotOnly ? 'Se muestra una captura real porque la URL de rama de Vercel exige autenticación al incrustarse.' : '';
+}
+
 previewToggle.addEventListener('click', () => {
   viewMode = viewMode === 'live' ? 'capture' : 'live';
   const live = viewMode === 'live';
   shell.classList.toggle('is-capture', !live);
-  previewLabel.textContent = live ? 'VISTA EN VIVO' : 'VISTA CAPTURA';
-  previewToggle.setAttribute('aria-pressed', String(live));
-  previewToggle.setAttribute('aria-label', live ? 'Cambiar a vista de captura' : 'Cambiar a vista en vivo');
+  updatePreviewControl();
   if (live) loadFrame(scenes[active]);
   else scenes.forEach(unloadFrame);
 });

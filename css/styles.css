@@ -280,3 +280,9 @@
  .game-card:last-child .card-image{height:clamp(92px,27vw,113px)}
  .card-new-label{letter-spacing:.7px}
 }
+
+/* Pulso Estelar usa una captura real local cuando el iframe recibe protección de Vercel. */
+.slide[data-static-preview="true"] .scene-capture.capture-ready { opacity: .99; filter: saturate(1.04) contrast(1.04); }
+.card-new[data-index="5"] .card-image img.capture-ready { filter: saturate(1.1) brightness(.95); object-position: center center; }
+.preview-toggle.is-static { opacity: .78; cursor: default; }
+.preview-toggle.is-static .toggle-chevron { opacity: .28; }

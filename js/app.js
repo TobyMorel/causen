@@ -1,12 +1,13 @@
 'use strict';
 
-/** Actualizá acá enlaces y textos de los cinco juegos. */
+/** Actualizá acá enlaces y textos de los seis juegos. */
 const games = [
   { id: 'republica', title: 'REPÚBLICA', category: 'ESTRATEGIA / POLÍTICA', description: 'El poder está en tus manos. Cada decisión escribe una historia diferente.', url: 'https://republica-mundial.vercel.app/', accent: '#dbfd8d' },
   { id: 'nexo', title: 'NEXO', category: 'ESPACIO / ESTRATEGIA', description: 'Conectá mundos. Gestioná colonias, cargueros y rutas a través del universo.', url: 'https://nexo-xi-eight.vercel.app/', accent: '#82f4e1' },
   { id: 'expediente', title: 'EXPEDIENTE', category: 'EXPERIENCIA INTERACTIVA', description: 'Una nueva historia te espera detrás de cada expediente.', url: 'https://expendiente.vercel.app/', accent: '#ffbd97' },
   { id: 'barro', title: 'DESDE EL BARRO', category: 'FÚTBOL / GESTIÓN', description: 'Empezá desde abajo. Construí tu camino como entrenador, partido a partido.', url: 'https://desde-el-barro.vercel.app/', accent: '#c4fa85' },
-  { id: 'logisys', title: 'LOGISYS', category: 'LOGÍSTICA / SIMULACIÓN', description: 'Ponete al mando de la operación. Cada movimiento cuenta.', url: 'https://logysys.vercel.app/', accent: '#a9c9ff' }
+  { id: 'logisys', title: 'LOGISYS', category: 'LOGÍSTICA / SIMULACIÓN', description: 'Ponete al mando de la operación. Cada movimiento cuenta.', url: 'https://logysys.vercel.app/', accent: '#a9c9ff' },
+  { id: 'pulso', title: 'PULSO ESTELAR', category: 'SIMULACIÓN / ESPACIO', description: 'Un nuevo universo por descubrir. Explorá Pulso Estelar y viví la experiencia.', url: 'https://pulso-estelar-git-main-tobias-morel.vercel.app/', accent: '#c4b5ff' }
 ];
 
 const shell = document.getElementById('siteShell');
@@ -92,11 +93,11 @@ function showGame(index, updateHash = true, automatic = false) {
     else unloadFrame(scene);
   });
   title.textContent = game.title;
-  title.classList.toggle('is-long', game.id === 'barro');
+  title.classList.toggle('is-long', game.id === 'barro' || game.id === 'pulso');
   title.classList.toggle('is-medium', game.id === 'expediente');
   category.textContent = game.category;
-  number.textContent = `${String(next + 1).padStart(2,'0')} / 05`;
-  sideNumber.innerHTML = `${String(next + 1).padStart(2,'0')}<span>/05</span>`;
+  number.textContent = `${String(next + 1).padStart(2,'0')} / ${String(games.length).padStart(2,'0')}`;
+  sideNumber.innerHTML = `${String(next + 1).padStart(2,'0')}<span>/${String(games.length).padStart(2,'0')}</span>`;
   description.textContent = game.description;
   playButton.href = game.url;
   playButton.setAttribute('aria-label', `Entrar a jugar ${game.title} (abre en una pestaña nueva)`);

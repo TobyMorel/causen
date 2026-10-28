@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f11">
+  <meta name="description" content="CUASEN es un estudio de simulación extrema que desarrolla juegos con un uso intensivo de inteligencia artificial. Cinco mundos gratuitos, decisiones con consecuencias y competencia justa.">
+  <title>CUASEN — Cada decisión tiene consecuencias · 5 juegos gratis</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/capturas-locales.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#coleccion">Ir a los cinco juegos</a>
+  <div class="site-shell" id="siteShell">
+    <header class="topbar">
+      <a class="brand" href="#republica" aria-label="CUASEN, volver al primer juego">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name">CUAS<span class="brand-accent">EN</span></span>
+      </a>
+      <div class="topbar-center"><span class="online-dot"></span> CADA DECISIÓN TIENE CONSECUENCIAS</div>
+      <a class="topbar-counter" href="#coleccion"><span class="topbar-counter-number">05</span><span>JUEGOS<br>DISPONIBLES</span><span class="topbar-counter-arrow" aria-hidden="true">↘</span></a>
+    </header>
+
+    <main class="main">
+      <section class="feature" aria-label="Juego destacado">
+        <div class="slides" id="slides" aria-hidden="true">
+          <div class="slide is-active" data-game="republica" style="--scene-image:url('assets/republica.svg')">
+            <div class="slide-art"></div><img class="scene-capture" alt="" data-capture-game="republica"><iframe title="Vista en vivo de República" data-src="https://republica-mundial.vercel.app/" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="slide-shade"></div>
+          </div>
+          <div class="slide" data-game="nexo" style="--scene-image:url('assets/nexo.svg')">
+            <div class="slide-art"></div><img class="scene-capture" alt="" data-capture-game="nexo"><iframe title="Vista en vivo de Nexo" data-src="https://nexo-xi-eight.vercel.app/" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="slide-shade"></div>
+          </div>
+          <div class="slide" data-game="expediente" style="--scene-image:url('assets/expediente.svg')">
+            <div class="slide-art"></div><img class="scene-capture" alt="" data-capture-game="expediente"><iframe title="Vista en vivo de Expediente" data-src="https://expendiente.vercel.app/" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="slide-shade"></div>
+          </div>
+          <div class="slide" data-game="barro" style="--scene-image:url('assets/barro.svg')">
+            <div class="slide-art"></div><img class="scene-capture" alt="" data-capture-game="barro"><iframe title="Vista en vivo de Desde el Barro" data-src="https://desde-el-barro.vercel.app/" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="slide-shade"></div>
+          </div>
+          <div class="slide" data-game="logisys" style="--scene-image:url('assets/logisys.svg')">
+            <div class="slide-art"></div><img class="scene-capture" alt="" data-capture-game="logisys"><iframe title="Vista en vivo de LOGISYS" data-src="https://logysys.vercel.app/" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="slide-shade"></div>
+          </div>
+        </div>
+        <div class="screen-grain" aria-hidden="true"></div>
+        <div class="feature-border" aria-hidden="true"></div>
+
+        <div class="feature-topline">
+          <span class="eyebrow-line"></span><span>EL JUEGO DESTACADO</span>
+          <button class="auto-toggle" id="autoToggle" type="button" aria-pressed="true" aria-label="Pausar recorrido automático" title="Pausar recorrido automático">
+            <span class="auto-dot" aria-hidden="true"></span>
+            <span class="auto-label-large" id="autoLabelLarge">RECORRIDO AUTOMÁTICO</span>
+            <span class="auto-label-small" id="autoLabelSmall">AUTO</span>
+            <span class="auto-symbol" id="autoSymbol" aria-hidden="true">Ⅱ</span>
+          </button>
+        </div>
+
+        <div class="feature-copy" aria-live="polite" aria-atomic="true">
+          <div class="game-meta"><span id="gameNumber" class="game-numeral">01 / 05</span><span class="game-meta-sep"></span><span id="gameCategory">ESTRATEGIA / POLÍTICA</span></div>
+          <h1 class="game-title" id="gameTitle"><span>REPÚBLICA</span></h1>
+          <p id="gameDescription" class="game-description">El poder está en tus manos. Cada decisión escribe una historia diferente.</p>
+          <div class="hero-actions">
+            <a id="playButton" class="play-button" href="https://republica-mundial.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Entrar a Jugar</span><span class="play-icon" aria-hidden="true">↗</span></a>
+            <span class="hero-action-note"><span class="note-dot"></span> Se abre en otra pestaña</span>
+          </div>
+        </div>
+        <div class="feature-side"><span>PREVISUALIZACIÓN</span><span class="feature-side-line"></span><strong id="sideNumber">01<span>/05</span></strong></div>
+        <div class="feature-controls"><button class="arrow-button" id="prevButton" type="button" aria-label="Juego anterior">←</button><button class="arrow-button" id="nextButton" type="button" aria-label="Juego siguiente">→</button></div>
+      </section>
+
+      <section class="collection" id="coleccion" aria-labelledby="collectionTitle">
+        <div class="collection-header">
+          <div class="collection-heading"><div class="collection-kicker"><span class="collection-flower">✳</span> TODOS LOS JUEGOS</div><h2 id="collectionTitle">Explorá la colección<span class="collection-count">05</span></h2></div>
+          <div class="collection-explainer"><span class="collection-live-dot"></span> CINCO MUNDOS, CINCO FORMAS DE JUGAR <span class="collection-explainer-line"></span> ELEGÍ UNO PARA EXPLORARLO</div>
+        </div>
+        <nav id="gameNavigation" class="collection-grid" aria-label="Elegí uno de los cinco juegos">
+          <article class="game-card is-current" data-index="0" style="--card-accent:#dbfd8d;--card-art:url('assets/republica.svg')">
+            <button class="card-select" type="button" data-index="0" aria-label="Previsualizar República" aria-current="true"><span class="card-image"><img alt="" data-capture-game="republica"><span class="card-scrim"></span><span class="card-number">01</span><span class="card-active-label">EN PANTALLA</span></span><span class="card-bottom"><span class="card-name">REPÚBLICA</span><span class="card-kind">SIMULACIÓN POLÍTICA</span></span></button>
+            <a class="card-open" href="https://republica-mundial.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Entrar a jugar República">↗</a>
+          </article>
+          <article class="game-card" data-index="1" style="--card-accent:#82f4e1;--card-art:url('assets/nexo.svg')">
+            <button class="card-select" type="button" data-index="1" aria-label="Previsualizar Nexo"><span class="card-image"><img alt="" data-capture-game="nexo"><span class="card-scrim"></span><span class="card-number">02</span><span class="card-active-label">EN PANTALLA</span></span><span class="card-bottom"><span class="card-name">NEXO</span><span class="card-kind">ESTRATEGIA ESPACIAL</span></span></button>
+            <a class="card-open" href="https://nexo-xi-eight.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Entrar a jugar Nexo">↗</a>
+          </article>
+          <article class="game-card" data-index="2" style="--card-accent:#ffbd97;--card-art:url('assets/expediente.svg')">
+            <button class="card-select" type="button" data-index="2" aria-label="Previsualizar Expediente"><span class="card-image"><img alt="" data-capture-game="expediente"><span class="card-scrim"></span><span class="card-number">03</span><span class="card-active-label">EN PANTALLA</span></span><span class="card-bottom"><span class="card-name">EXPEDIENTE</span><span class="card-kind">EXPERIENCIA INTERACTIVA</span></span></button>
+            <a class="card-open" href="https://expendiente.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Entrar a jugar Expediente">↗</a>
+          </article>
+          <article class="game-card" data-index="3" style="--card-accent:#c4fa85;--card-art:url('assets/barro.svg')">
+            <button class="card-select" type="button" data-index="3" aria-label="Previsualizar Desde el Barro"><span class="card-image"><img alt="" data-capture-game="barro"><span class="card-scrim"></span><span class="card-number">04</span><span class="card-active-label">EN PANTALLA</span></span><span class="card-bottom"><span class="card-name">DESDE EL BARRO</span><span class="card-kind">FÚTBOL / GESTIÓN</span></span></button>
+            <a class="card-open" href="https://desde-el-barro.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Entrar a jugar Desde el Barro">↗</a>
+          </article>
+          <article class="game-card" data-index="4" style="--card-accent:#a9c9ff;--card-art:url('assets/logisys.svg')">
+            <button class="card-select" type="button" data-index="4" aria-label="Previsualizar LOGISYS"><span class="card-image"><img alt="" data-capture-game="logisys"><span class="card-scrim"></span><span class="card-number">05</span><span class="card-active-label">EN PANTALLA</span></span><span class="card-bottom"><span class="card-name">LOGISYS</span><span class="card-kind">SIMULACIÓN LOGÍSTICA</span></span></button>
+            <a class="card-open" href="https://logysys.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Entrar a jugar LOGISYS">↗</a>
+          </article>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="footerbar">
+      <a class="footer-left footer-about-link scroll-cue" href="#proyecto" aria-label="Deslizá hacia abajo para conocer más sobre CUASEN, o tocá acá">
+        <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
+        <span class="scroll-cue-copy"><strong class="scroll-cue-long">SEGUÍ DESLIZANDO</strong><strong class="scroll-cue-short">MÁS ABAJO</strong><small>Hay más sobre CUASEN ↓</small></span>
+      </a>
+      <span class="footer-hint">5 JUEGOS GRATUITOS <span class="footer-muted">·</span> UNA MISMA FILOSOFÍA</span>
+      <button class="preview-toggle" id="previewToggle" type="button" aria-label="Cambiar a vista de captura" aria-pressed="true"><span class="preview-status"></span><span id="previewLabel">VISTA EN VIVO</span><span class="toggle-chevron" aria-hidden="true">⇄</span></button>
+    </footer>
+  </div>
+
+  <section class="manifesto" id="proyecto" aria-labelledby="manifestoTitle">
+    <div class="manifesto-inner">
+      <div class="manifesto-headerline">
+        <span class="manifesto-section-tag"><span class="manifesto-asterisk" aria-hidden="true">✳</span> DETRÁS DE LOS JUEGOS</span>
+        <span class="manifesto-index">CUASEN / UN ESTUDIO INDEPENDIENTE</span>
+      </div>
+
+      <div class="manifesto-intro">
+        <div class="manifesto-headline">
+          <span class="manifesto-eyebrow">CUASEN <span aria-hidden="true">/</span> SIMULACIÓN EXTREMA</span>
+          <h2 id="manifestoTitle">Cada decisión<br><em>tiene consecuencias.</em></h2>
+        </div>
+        <div class="manifesto-statement">
+          <span class="manifesto-statement-number">01 / NUESTRA IDEA</span>
+          <p>El nombre <strong>CUASEN</strong> resume una idea: <strong>cada causa tiene una consecuencia</strong>. En estos juegos —y en los que vengan— nos mueve una misma búsqueda: <strong>llevar las tareas, los sistemas y los desafíos de la vida real a mundos digitales.</strong></p>
+          <p>Cada acción tiene consecuencias dentro de la simulación. Sus mecánicas se construyen a partir de investigación, fuentes y procesos documentados que ayudan a recrear cómo funciona el mundo real.</p>
+        </div>
+      </div>
+
+      <div class="manifesto-values" aria-label="Nuestros compromisos">
+        <article class="value-card">
+          <span class="value-top"><span>01</span><span aria-hidden="true">↗</span></span>
+          <div class="value-content"><span class="value-icon" aria-hidden="true">∞</span><h3>Gratis.<br>Para siempre.</h3><p>Todos los juegos son y seguirán siendo gratuitos. El objetivo es mantenerlos vivos con <strong>actualizaciones y mejoras constantes</strong>, sin costo para jugar.</p></div>
+          <span class="value-foot">ACCESO LIBRE</span>
+        </article>
+        <article class="value-card">
+          <span class="value-top"><span>02</span><span aria-hidden="true">↗</span></span>
+          <div class="value-content"><span class="value-icon" aria-hidden="true">≠</span><h3>La ventaja<br>no se compra.</h3><p>No habrá microtransacciones que den ventajas, aceleren el progreso competitivo o perjudiquen el juego limpio. <strong>La competencia tiene que ser honesta.</strong></p></div>
+          <span class="value-foot">SIN PAY-TO-WIN</span>
+        </article>
+        <article class="value-card">
+          <span class="value-top"><span>03</span><span aria-hidden="true">↗</span></span>
+          <div class="value-content"><span class="value-icon" aria-hidden="true">♡</span><h3>Apoyar es<br>una elección.</h3><p>En el futuro se podrán evaluar <strong>donaciones voluntarias</strong> para sostener los servidores y skins puramente estéticas. Ninguna opción será obligatoria ni dará ventajas al competir.</p></div>
+          <span class="value-foot">UNA POSIBILIDAD A FUTURO</span>
+        </article>
+      </div>
+
+      <div class="creator-panel">
+        <div class="creator-copy">
+          <span class="creator-kicker"><span class="creator-kicker-dot"></span> EL ESTUDIO</span>
+          <h3>Simulación con propósito.<br><span>Desarrollo sin atajos.</span></h3>
+          <p><strong>Somos CUASEN</strong>, un estudio independiente dedicado a crear simuladores donde los detalles importan. Desarrollamos nuestras experiencias con un <strong>uso intensivo de herramientas de inteligencia artificial</strong>, que son parte central del diseño, la programación y la evolución de nuestros juegos.</p>
+          <p>Queremos transformar sistemas reales en mundos digitales para explorar, decidir y aprender. Seguimos mejorando cada experiencia con investigación, pruebas y los aportes de quienes juegan.</p>
+        </div>
+        <div class="creator-contact">
+          <span class="contact-label">TU OPINIÓN SUMA</span>
+          <p>¿Qué te gustó? ¿Qué cambiarías? ¿Qué juego te gustaría ver después?</p>
+          <a class="feedback-button" href="mailto:tobi198@hotmail.com?subject=Mi%20opini%C3%B3n%20sobre%20CUASEN&amp;body=Hola%20equipo%20CUASEN%2C%0A%0AQuiero%20compartir%20mi%20opini%C3%B3n%3A%0A" aria-label="Dejá tu opinión por correo electrónico al estudio CUASEN"><span>Dejá tu opinión</span><span class="feedback-arrow" aria-hidden="true">↗</span></a>
+          <a class="creator-email" href="mailto:tobi198@hotmail.com">tobi198@hotmail.com</a>
+        </div>
+      </div>
+
+      <div class="manifesto-bottom"><span>© 2026 CUASEN GAME STUDIO</span><span>CADA DECISIÓN TIENE CONSECUENCIAS.</span><a href="#coleccion">VOLVER A LOS JUEGOS <span aria-hidden="true">↑</span></a></div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# CUASEN — Sitio web + kit de Instagram
+
+**CUASEN — Cada decisión tiene consecuencias.** Sitio responsive para presentar cinco juegos de simulación gratuitos, su filosofía y un canal para recibir opiniones. El contenido institucional se presenta como un estudio independiente y explica que las herramientas de inteligencia artificial son parte central del desarrollo.
+
+## Web
+
+Abrí `index.html` con un navegador; también podés publicar la carpeta `cuasen` en Vercel o cualquier hosting estático. No necesita instalar paquetes.
+
+- Previsualización de los cinco juegos mediante iframe, cuando el navegador y cada sitio permiten mostrarla.
+- Alternativa de captura (carga una imagen desde un servicio externo si hay conexión) y SVG de respaldo. **Los SVG son ilustraciones, no capturas reales.**
+- Cinco tarjetas visibles, clicables y con enlaces directos.
+- Recorrido automático: tras 9 segundos sin interacción empieza a pasar de un juego a otro cada 7 segundos. Se pausa con el control correspondiente o mientras el destacado esté fuera de pantalla. Respeta la preferencia de movimiento reducido.
+- Una **indicación llamativa para deslizar hacia abajo** conduce a la filosofía del estudio.
+- Sección de valores: simulación extrema, gratuidad, ausencia de pay-to-win, futuras posibilidades de donaciones voluntarias y skins cosméticas.
+- Botón **Dejá tu opinión**: abre el correo a `tobi198@hotmail.com` con asunto precargado.
+
+Para editar textos y URLs, usá `index.html`; los estilos están en `css/styles.css` y la lógica en `js/app.js`.
+
+## Instagram
+
+La carpeta `instagram` contiene:
+
+- `CUASEN_Icono_Instagram_1080.png`: foto de perfil lista para subir.
+- `CUASEN_Marca_vectorial.svg`: variante de marca escalable.
+- `publicaciones/`: **seis diseños PNG de 1080 × 1350** listos para el feed.
+- `stories/`: historia vertical **1080 × 1920** para lanzamiento.
+- `BIO_Y_PUBLICACIONES.txt`: bio, sugerencias de usuario, copies listos para usar y enlaces de los cinco juegos.
+
+**Importante:** las imágenes publicitarias combinan diseño tipográfico con arte gráfico ilustrativo de las escenas de respaldo; no deben presentarse como pantallazos verificados de las webs. Los nombres de usuario sugeridos no se han comprobado.
+
+## Capturas locales (opcional)
+
+Podés generar capturas auténticas con una computadora conectada a Internet:
+
+```bash
+python -m pip install playwright
+python -m playwright install chromium
+python tools/capturar-juegos.py
+```
+
+El script guarda imágenes en `assets/capturas/` y actualiza `js/capturas-locales.js`.
+
+## Marca
+
+El nombre **CUASEN** expresa la relación entre causa y consecuencia: toda decisión altera el mundo simulado. Es un nombre de fantasía, no una etimología reconocida. Conviene comprobar su disponibilidad registral y de dominio antes de registrar la marca.
